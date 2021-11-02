@@ -11,18 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/hello',function(){
-    echo "HAI SAYANG";
-});
-Route::get('/name/{name}',function($name){
-    return "hello" . $name;
-});
-Route::get('/name/{name}',function($name){
-    return "hello " . $name;
-})->where('name','[A-Za-z]+');
-Route::get('/name/{name}/{nrp}',function($name,$nrp){
-    return "hello " . $name . $nrp;
-})->where('name','[A-Za-z]+');
+Route::get('/person', 'PersonController@index');
+Route::get('/person/show/{param}', 'PersonController@show');
+Route::resource('/student', 'StudentController');
